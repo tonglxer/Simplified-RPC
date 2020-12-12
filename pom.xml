@@ -11,16 +11,15 @@
     <modules>
         <module>rpc-common</module>
         <module>rpc-proto</module>
-        <module>rpc-codec</module>
         <module>rpc-transport</module>
         <module>rpc-server</module>
         <module>rpc-client</module>
+        <module>rpc- serialize</module>
     </modules>
 
     <properties>
         <commons.version>2.5</commons.version>
         <jetty.version>9.4.19.v2019610</jetty.version>
-        <fastjson.version>1.2.44</fastjson.version>
     </properties>
 
     <!--子模块可能用到的依赖-->
@@ -36,12 +35,6 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-servet</artifactId>
                 <version>${jetty.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
