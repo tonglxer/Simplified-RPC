@@ -17,27 +17,6 @@
         <module>rpc- serialize</module>
     </modules>
 
-    <properties>
-        <commons.version>2.5</commons.version>
-        <jetty.version>9.4.19.v2019610</jetty.version>
-    </properties>
-
-    <!--子模块可能用到的依赖-->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-servet</artifactId>
-                <version>${jetty.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <!--公共模块依赖-->
     <dependencies>
