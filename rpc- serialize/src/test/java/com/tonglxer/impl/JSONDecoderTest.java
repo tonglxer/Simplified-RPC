@@ -1,8 +1,10 @@
 package com.tonglxer.impl;
 
-import com.tonglxer.Decoder;
-import com.tonglxer.Encoder;
 import com.tonglxer.TestBean;
+import com.tonglxer.codec.Encoder;
+import com.tonglxer.codec.Decoder;
+import com.tonglxer.codec.impl.JSONDecoder;
+import com.tonglxer.codec.impl.JSONEncoder;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
