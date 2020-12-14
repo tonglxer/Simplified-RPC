@@ -2,6 +2,7 @@ package com.tonglxer.proto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * RPC的请求信息
@@ -11,6 +12,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class RPCRequest {
     private ServiceDescriptor service;
     private Object[] args;

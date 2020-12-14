@@ -40,6 +40,8 @@ public class ReflectionUtils {
      * @return 该类的所有公共方法
      * */
     public static Method[] getPublicMethods(Class clazz) {
+        // 不用getMethods()是因为该方法会获取父类的public方法
+        // 避免出现未知错误
         Method[] methods = clazz.getDeclaredMethods();
         List<Method> publicMethods = new ArrayList<>();
         for (Method m : methods) {
