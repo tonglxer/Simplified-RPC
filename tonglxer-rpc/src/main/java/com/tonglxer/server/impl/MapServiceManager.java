@@ -3,7 +3,7 @@ package com.tonglxer.server.impl;
 import com.tonglxer.common.utils.ReflectionUtils;
 import com.tonglxer.proto.RPCRequest;
 import com.tonglxer.proto.ServiceDescriptor;
-import com.tonglxer.server.dto.ServiceInstance;
+import com.tonglxer.common.dto.ServiceInstance;
 import com.tonglxer.server.ServiceManager;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

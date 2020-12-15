@@ -2,7 +2,7 @@ package com.tonglxer.server;
 
 import com.tonglxer.common.utils.ReflectionUtils;
 import com.tonglxer.proto.RPCRequest;
-import com.tonglxer.server.dto.ServiceInstance;
+import com.tonglxer.common.dto.ServiceInstance;
 
 /**
  * 调用具体服务

@@ -1,7 +1,7 @@
 package com.tonglxer.server;
 
 import com.tonglxer.proto.RPCRequest;
-import com.tonglxer.server.dto.ServiceInstance;
+import com.tonglxer.common.dto.ServiceInstance;
 
 /**
  *
