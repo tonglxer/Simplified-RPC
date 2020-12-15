@@ -49,11 +49,15 @@ public class RPCServer {
         this.serviceInvoker = new ServiceInvoker();
     }
 
+    public RPCServer() {
+        this(new RPCServerConfig());
+    }
+
     /**
      * 注册服务
      *
      * @param interfaceClass 服务接口类
-     * @param bean 服务实例
+     * @param bean 服务实现类
      * */
     public <T> void register(Class<T> interfaceClass, T bean) {
         serviceManager.register(interfaceClass, bean);

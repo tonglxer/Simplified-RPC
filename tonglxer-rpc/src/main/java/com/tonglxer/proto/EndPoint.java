@@ -13,5 +13,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class EndPoint {
     private String host;
-    private String port;
+    private int port;
 }
