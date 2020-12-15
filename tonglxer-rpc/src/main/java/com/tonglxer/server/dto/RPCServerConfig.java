@@ -1,11 +1,11 @@
-package com.tonglxer.server;
+package com.tonglxer.server.dto;
 
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
 import com.tonglxer.codec.impl.JSONDecoder;
 import com.tonglxer.codec.impl.JSONEncoder;
 import com.tonglxer.transport.TransportServer;
-import com.tonglxer.transport.impl.HTTPTransportServer;
+import com.tonglxer.transport.http.HTTPTransportServer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

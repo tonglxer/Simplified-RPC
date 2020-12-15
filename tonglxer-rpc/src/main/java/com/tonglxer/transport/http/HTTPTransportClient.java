@@ -1,4 +1,4 @@
-package com.tonglxer.transport.impl;
+package com.tonglxer.transport.http;
 
 import com.tonglxer.proto.EndPoint;
 import com.tonglxer.transport.TransportClient;

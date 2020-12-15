@@ -1,5 +1,6 @@
 package com.tonglxer.proto;
 
+import com.tonglxer.common.constant.RPCConstant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,13 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RPCResponse {
-    /**
-     * code:
-     * 0： 成功
-     * 其他表示失败
-     *
-     * */
-    private int code = 0;
-    private String message = "success";
+    // 状态码，默认成功
+    private int code = RPCConstant.SUCCESS;
+    // 响应信息，默认成功
+    private String message = RPCConstant.SUCCESS_MESSAGE;
+    // 响应体
     private Object data;
 }

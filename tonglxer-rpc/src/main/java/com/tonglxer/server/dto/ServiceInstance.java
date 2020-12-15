@@ -1,4 +1,4 @@
-package com.tonglxer.server;
+package com.tonglxer.server.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
