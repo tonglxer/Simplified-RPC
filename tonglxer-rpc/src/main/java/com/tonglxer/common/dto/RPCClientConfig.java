@@ -4,8 +4,8 @@ import com.tonglxer.client.TransportSelector;
 import com.tonglxer.client.impl.RandomTransportSelector;
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
-import com.tonglxer.codec.impl.JSONDecoder;
-import com.tonglxer.codec.impl.JSONEncoder;
+import com.tonglxer.codec.fastjson.JSONDecoder;
+import com.tonglxer.codec.fastjson.JSONEncoder;
 import com.tonglxer.proto.EndPoint;
 import com.tonglxer.transport.TransportClient;
 import com.tonglxer.transport.http.HTTPTransportClient;
@@ -34,7 +34,8 @@ public class RPCClientConfig {
 
     private int connectCount = 1;
 
+    // 设定ip 和 端口
     private List<EndPoint> servers = Arrays.asList(
-            new EndPoint("127.0.0.1", 8888));
+            new EndPoint("192.168.0.107", 8888));
 
 }

@@ -1,4 +1,4 @@
-package com.tonglxer.codec.impl;
+package com.tonglxer.codec.fastjson;
 
 import com.alibaba.fastjson.JSON;
 import com.tonglxer.codec.Decoder;

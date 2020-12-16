@@ -59,9 +59,13 @@ public class RemoteInvoker implements InvocationHandler {
         try {
             client = selector.select();
 
+            // 1. 将请求编码
             byte[] outBytes = encoder.encode(request);
+            // 2. 写入序列化的请求，并接收响应
             InputStream receive = client.write(new ByteArrayInputStream(outBytes));
+            // 3. 读取响应byte数组
             byte[] inBytes = IOUtils.readFully(receive, receive.available());
+            // 4. 解码响应
             response = decoder.decode(inBytes, RPCResponse.class);
         } catch (IOException e) {
             log.error("The invokeRemote read response fail.");
@@ -73,6 +77,7 @@ public class RemoteInvoker implements InvocationHandler {
                 selector.release(client);
             }
         }
+        // 5. 返回响应结果
         return response;
     }
 }

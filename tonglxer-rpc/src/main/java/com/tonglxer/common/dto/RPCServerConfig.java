@@ -2,8 +2,8 @@ package com.tonglxer.common.dto;
 
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
-import com.tonglxer.codec.impl.JSONDecoder;
-import com.tonglxer.codec.impl.JSONEncoder;
+import com.tonglxer.codec.fastjson.JSONDecoder;
+import com.tonglxer.codec.fastjson.JSONEncoder;
 import com.tonglxer.transport.TransportServer;
 import com.tonglxer.transport.http.HTTPTransportServer;
 import lombok.AllArgsConstructor;
