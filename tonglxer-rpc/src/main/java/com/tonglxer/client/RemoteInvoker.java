@@ -2,7 +2,7 @@ package com.tonglxer.client;
 
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
-import com.tonglxer.common.constant.RPCConstant;
+import com.tonglxer.common.constant.RPCConstantEnum;
 import com.tonglxer.proto.RPCRequest;
 import com.tonglxer.proto.RPCResponse;
 import com.tonglxer.proto.ServiceDescriptor;
@@ -47,7 +47,7 @@ public class RemoteInvoker implements InvocationHandler {
         request.setArgs(args);
 
         RPCResponse response = invokeRemote(request);
-        if (response == null || response.getCode()!= RPCConstant.SUCCESS) {
+        if (response == null || response.getCode()!= RPCConstantEnum.SUCCESS.getCode()) {
             log.error("The remote proxy invoke is fail. {}", response);
         }
         return response.getData();
@@ -70,8 +70,8 @@ public class RemoteInvoker implements InvocationHandler {
         } catch (IOException e) {
             log.error("The invokeRemote read response fail.");
             response = new RPCResponse();
-            response.setCode(RPCConstant.FAIL);
-            response.setMessage(RPCConstant.FAIL_MESSAGE);
+            response.setCode(RPCConstantEnum.FAIL.getCode());
+            response.setMessage(RPCConstantEnum.FAIL.getMessage());
         } finally {
             if (client != null) {
                 selector.release(client);

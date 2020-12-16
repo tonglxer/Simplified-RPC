@@ -2,7 +2,7 @@ package com.tonglxer.server;
 
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
-import com.tonglxer.common.constant.RPCConstant;
+import com.tonglxer.common.constant.RPCConstantEnum;
 import com.tonglxer.common.utils.ReflectionUtils;
 import com.tonglxer.proto.RPCRequest;
 import com.tonglxer.proto.RPCResponse;
@@ -98,8 +98,8 @@ public class RPCServer {
                 response.setData(invoke);
 
             } catch (IOException e) {
-                response.setCode(RPCConstant.FAIL);// 1代表失败
-                response.setMessage(RPCConstant.FAIL_MESSAGE + e.getClass().getName());
+                response.setCode(RPCConstantEnum.FAIL.getCode());// 1代表失败
+                response.setMessage(RPCConstantEnum.FAIL.getMessage() + e.getClass().getName());
             } finally {
                 try {
                     // 6. 将调用结果序列化
