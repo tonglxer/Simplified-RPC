@@ -36,6 +36,6 @@ public class RPCClientConfig {
 
     // 设定ip 和 端口
     private List<EndPoint> servers = Arrays.asList(
-            new EndPoint("192.168.0.107", 8888));
+            new EndPoint("127.0.0.1", 8888));
 
 }
