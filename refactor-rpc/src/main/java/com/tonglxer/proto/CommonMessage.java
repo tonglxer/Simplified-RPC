@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CommonMessage {
     // 魔数：用于标识为RPC信息
-    private int magicNumber = RPCConstant.RPC_MAGIC_NUMBER;
+    private int magicNumber = RPCConstant.RPC_MARK;
 
     // 请求序号
     private String requestID;

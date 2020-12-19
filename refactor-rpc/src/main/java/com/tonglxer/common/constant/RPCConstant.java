@@ -8,9 +8,9 @@ package com.tonglxer.common.constant;
  */
 public class RPCConstant {
     /**
-     * 魔数：设定为RPC消息的标识
+     * RPC消息标识
      * */
-    public static final int RPC_MAGIC_NUMBER = 315;
+    public static final int RPC_MARK = 315;
 
     /**
      * 成功响应码
@@ -26,4 +26,35 @@ public class RPCConstant {
      * 成功响应消息
      * */
     public static final String SUCCESS_MESSAGE = "RPC service call succeeded. ";
+
+    /**
+     * fastjson序列化标识
+     * */
+    public static final int FASTJSON_SERIALIZE = 1;
+
+    /**
+     * Kyro序列化标识
+     * */
+    public static final int KYRO_SERIALIZE = 2;
+
+    /**
+     * protostuff序列化标识
+     * */
+    public static final int PROTOSTUFF_SERIALIZE = 3;
+
+    /**
+     * http传输标识（Jetty）
+     * */
+    public static final int HTTP_TRANSPORT = 1;
+
+    /**
+     * socket传输标识
+     * */
+    public static final int SOCKET_TRANSPORT = 2;
+
+    /**
+     * netty传输标识(基于NIO)
+     * */
+    public static final int NETTY_TRANSPORT = 3;
+
 }
