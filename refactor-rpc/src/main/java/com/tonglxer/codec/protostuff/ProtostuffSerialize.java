@@ -21,6 +21,7 @@ public class ProtostuffSerialize implements RPCSerialize {
 
     @Override
     public byte[] encode(Object object) {
+        log.info("Use ProtostuffSerialize to encode.");
         Class<?> clazz = object.getClass();
         Schema schema = RuntimeSchema.getSchema(clazz);
         byte[] bytes;
@@ -35,6 +36,7 @@ public class ProtostuffSerialize implements RPCSerialize {
 
     @Override
     public <T> T decode(byte[] bytes, Class<T> clazz) {
+        log.info("Use ProtostuffSerialize to decode.");
         Schema<T> schema = RuntimeSchema.getSchema(clazz);
         T obj = schema.newMessage();
         ProtostuffIOUtil.mergeFrom(bytes, obj, schema);
