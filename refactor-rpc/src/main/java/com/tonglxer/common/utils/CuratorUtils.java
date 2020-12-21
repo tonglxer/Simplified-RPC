@@ -57,13 +57,13 @@ public final class CuratorUtils {
             if (REGISTERED_PATH_SET.contains(path) || zkClient.checkExists().forPath(path) != null) {
                 log.info("The node already exists. The node is: [{}]", path);
             } else {
-                // 创建永久节点：/tonglxer-rpc/服务全限定名/ip:port
+                // 创建永久节点：/tonglxer-rpc/服务全限定名/服务器地址信息
                 zkClient.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath(path);
-                log.info("The node was created successfully. The node is: [{}]", path);
+                log.info("The node [{}] was created successfully.", path);
             }
             REGISTERED_PATH_SET.add(path);
         } catch (Exception e) {
-            log.error("Create persistent node for path [{}] fail", path);
+            log.error("Create persistent node for path [{}] was fail.", path);
         }
     }
 
@@ -86,7 +86,7 @@ public final class CuratorUtils {
             // 添加监听器，实时更新地址信息
             addServiceAddressListener(serviceName, zkClient);
         } catch (Exception e) {
-            log.error("get children nodes for path [{}] fail", servicePath);
+            log.error("Get children nodes for path [{}] was fail", servicePath);
         }
         return result;
     }
@@ -99,17 +99,17 @@ public final class CuratorUtils {
      */
     public static void clearRegistry(CuratorFramework zkClient, InetSocketAddress inetSocketAddress) {
         // parallel(): 并行流 提升效率
-        REGISTERED_PATH_SET.stream().parallel().forEach(p -> {
+        REGISTERED_PATH_SET.stream().parallel().forEach(node -> {
             try {
                 // 若后缀为需要清空的服务器地址，则删除节点
-                if (p.endsWith(inetSocketAddress.toString())) {
-                    zkClient.delete().forPath(p);
+                if (node.endsWith(inetSocketAddress.toString())) {
+                    zkClient.delete().forPath(node);
                 }
             } catch (Exception e) {
-                log.error("clear registry for path [{}] fail", p);
+                log.error("Clear registry for path [{}] was fail", node);
             }
         });
-        log.info("All registered services on the server are cleared: [{}]", REGISTERED_PATH_SET.toString());
+        log.info("The registration information of the service [{}] has been cleared.", REGISTERED_PATH_SET.toString());
     }
 
     /**
