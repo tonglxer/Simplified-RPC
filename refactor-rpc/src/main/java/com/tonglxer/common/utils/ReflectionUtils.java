@@ -22,7 +22,7 @@ import java.util.List;
  * @date 2020/12/12
  */
 @Slf4j
-public class ReflectionUtils {
+public final class ReflectionUtils {
 
     /**
      * 通过反射根据class创建对象

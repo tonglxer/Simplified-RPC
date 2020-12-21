@@ -36,12 +36,13 @@ public class KyroSerialize implements RPCSerialize {
     @Override
     public byte[] encode(Object object) {
         log.info("Use KyroSerialize to encode.");
+        // try-with-resource写法可以自动关闭资源
         try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             Output output = new Output(byteArrayOutputStream)) {
             Kryo kryo = kryoThreadLocal.get();
-            // Object->byte:将对象序列化为byte数组
+            // 将对象序列化为byte数组
             kryo.writeObject(output, object);
-            // 使用完成后清除kyro
+            // 使用完成后移除kyro
             kryoThreadLocal.remove();
             return output.toBytes();
         } catch (IOException e) {
@@ -55,11 +56,12 @@ public class KyroSerialize implements RPCSerialize {
         try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
             Input input = new Input(byteArrayInputStream)) {
             Kryo kryo = kryoThreadLocal.get();
-            // byte->Object:从byte数组中反序列化出对对象
-            Object o = kryo.readObject(input, clazz);
+            // 从byte数组中反序列化出对对象
+            Object object = kryo.readObject(input, clazz);
             // 使用完成后移除kyro
             kryoThreadLocal.remove();
-            return clazz.cast(o);
+            // 类型转换后返回
+            return clazz.cast(object);
         } catch (IOException e) {
             throw new RPCSerializeException("KyroSerialize decode failed.");
         }
