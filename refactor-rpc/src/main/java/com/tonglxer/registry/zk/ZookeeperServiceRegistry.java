@@ -36,8 +36,7 @@ public class ZookeeperServiceRegistry implements RPCServiceRegistry {
         }
         // ex: /tonglxer-rpc/serviceName/127.0.0.01:2181
         String servicePath = CuratorUtils.ZK_REGISTER_ROOT_PATH +
-                System.lineSeparator() + serviceName +
-                System.lineSeparator() + endPoint.toString();
+                System.lineSeparator() + serviceName + endPoint.toString();
         CuratorFramework zkClient = CuratorUtils.getZkClient();
         // 添加永久节点以注册服务及服务器地址
         CuratorUtils.createPersistentNode(zkClient, servicePath);
