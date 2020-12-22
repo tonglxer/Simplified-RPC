@@ -1,5 +1,6 @@
 package com.tonglxer.common.utils;
 
+import com.tonglxer.common.constant.RPCConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -118,8 +119,8 @@ public final class CuratorUtils {
      * @param inetSocketAddress zk服务器地址
      * @return zk客户端
      * */
-    public static CuratorFramework getZkClient(InetSocketAddress inetSocketAddress) {
-        String zookeeperAddress = inetSocketAddress.getHostName() + ":" + inetSocketAddress.getPort();
+    public static CuratorFramework getZkClient(String inetSocketAddress) {
+        String zookeeperAddress = inetSocketAddress;
         // 若zk已启动，则直接返回已启动实例
         if (zkClient != null && zkClient.getState() == CuratorFrameworkState.STARTED) {
             return zkClient;
@@ -130,6 +131,16 @@ public final class CuratorUtils {
                 .retryPolicy(retryPolicy) // 重试策略
                 .build();
         zkClient.start();
+        return zkClient;
+    }
+
+    /**
+     * 获取zk客户端实例, zk服务端地址使用默认值
+     *
+     * @return zk客户端
+     * */
+    public static CuratorFramework getZkClient() {
+        CuratorFramework zkClient = getZkClient(RPCConstant.DEFAULT_ZOOKEEPER_ADDRESS);
         return zkClient;
     }
 

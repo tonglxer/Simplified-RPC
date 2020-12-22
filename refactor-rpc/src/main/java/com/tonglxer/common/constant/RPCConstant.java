@@ -60,6 +60,6 @@ public class RPCConstant {
     /**
      * 默认的zookeeper地址
      * */
-    private static final String DEFAULT_ZOOKEEPER_ADDRESS = "127.0.0.1:2181";
+    public static final String DEFAULT_ZOOKEEPER_ADDRESS = "127.0.0.1:2181";
 
 }
