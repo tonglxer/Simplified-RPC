@@ -1,5 +1,6 @@
 package com.tonglxer.registry.zk;
 
+import com.tonglxer.common.balance.poll.PollLoadBalance;
 import com.tonglxer.common.constant.RPCConstant;
 import com.tonglxer.common.exception.RPCException;
 import com.tonglxer.common.exception.RPCTransportException;
@@ -50,8 +51,8 @@ public class ZookeeperServiceRegistry implements RPCServiceRegistry {
             log.error("Failed to get server address of service: [{}].", serviceName);
             throw new RPCException("Failed to get server address of service: " + serviceName);
         }
-        // TODO: 2020/12/22 添加负载均衡
-        String targetServiceUrl = serviceUrlList.get(0);
+        // 经由负载均衡算法获取目标服务器地址
+        String targetServiceUrl = PollLoadBalance.getInstance().getTargetAddress(serviceUrlList);
         log.info("Successfully found the service address: [{}]", targetServiceUrl);
         // 通过字符串分割获取ip和端口
         String[] socketAddressArray = targetServiceUrl.split(":");
