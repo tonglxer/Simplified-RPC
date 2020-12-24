@@ -2,6 +2,7 @@ package com.tonglxer.proto;
 
 import com.tonglxer.common.constant.RPCConstant;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class CommonMessage {
     // 魔数：用于标识为RPC信息
     private int magicNumber = RPCConstant.RPC_MARK;
@@ -20,8 +22,8 @@ public class CommonMessage {
     private String requestID;
 
     // 序列化方式
-    private String serializeType;
+    private int serializeType;
 
     // 传输方式
-    private String transportType;
+    private int transportType;
 }

@@ -26,10 +26,10 @@ public class RPCRequest {
     private String methodName;
 
     // 方法返回类型
-    private String returnType;
+    private Class<?> returnType;
 
     // 方法参数类型列表
-    private String[] parameterTypes;
+    private Class<?>[] parameterTypes;
 
     // 方法参数列表
     private Object[] args;
