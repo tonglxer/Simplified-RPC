@@ -22,8 +22,8 @@ public class CommonMessage {
     private String requestID;
 
     // 序列化方式
-    private int serializeType;
+    private int serializeType = RPCConstant.FASTJSON_SERIALIZE;
 
     // 传输方式
-    private int transportType;
+    private int transportType = RPCConstant.SOCKET_TRANSPORT;
 }
