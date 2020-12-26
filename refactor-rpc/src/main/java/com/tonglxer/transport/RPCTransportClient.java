@@ -3,10 +3,12 @@ package com.tonglxer.transport;
 import com.tonglxer.proto.RPCRequest;
 
 /**
+ * RPC传输客户端
+ *
  * @Author Tong LinXing
  * @date 2020/12/20
  */
-public interface RPCTransport {
+public interface RPCTransportClient {
     /**
      * 发送RPC请求并获取结果
      *
