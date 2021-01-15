@@ -20,6 +20,8 @@ public class RPCClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) {
         System.out.println("接收到服务端信息：" + byteBuf.toString(CharsetUtil.UTF_8));
+        // 接收到一次消息后就关闭客户端
+        channelHandlerContext.close();
     }
 
     @Override

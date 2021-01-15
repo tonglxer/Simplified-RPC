@@ -34,7 +34,7 @@ public class RPCNettyDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
 
-        //1.至少四字节才可读
+        //1.至少四字节才可读（int）
         if (in.readableBytes() >= BODY_LENGTH) {
             //2.标记当前readIndex的位置，以便重置readIndex时使用
             in.markReaderIndex();
