@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -18,6 +19,8 @@ import java.util.Properties;
  */
 @Slf4j
 public class PropertiesFileUtil {
+    private static String PROPERTIES_FILE_NAME = "rpc.properties";
+
     /**
      * 工具类隐藏构造函数
      * */
@@ -48,5 +51,26 @@ public class PropertiesFileUtil {
             log.error("Read properties file [{}] have some error.", fileName);
         }
         return properties;
+    }
+
+    /**
+     * 获取默认的配置文件指定项的值
+     *
+     * @param key 指定的配置项
+     * @return 对应的属性值
+     */
+    public static String getProperties(String key) {
+        Properties properties = new Properties();
+        // 使用ClassLoader加载properties配置文件生成对应的输入流
+        try (InputStream in = PropertiesFileUtil.class
+                .getClassLoader()
+                .getResourceAsStream(PROPERTIES_FILE_NAME)) {
+            // 使用properties对象加载输入流
+            properties.load(in);
+        } catch (IOException e) {
+            log.error("Get {} have some error.", key);
+        }
+        //获取key对应的value值
+        return properties.getProperty(key);
     }
 }
