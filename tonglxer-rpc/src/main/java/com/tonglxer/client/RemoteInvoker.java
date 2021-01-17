@@ -61,7 +61,7 @@ public class RemoteInvoker implements InvocationHandler {
 
             // 1. 将请求编码
             byte[] outBytes = encoder.encode(request);
-            // 2. 写入序列化的请求，并接收响应
+            // 2. 向服务端写入序列化的请求，并接收响应
             InputStream receive = client.write(new ByteArrayInputStream(outBytes));
             // 3. 读取响应byte数组
             byte[] inBytes = IOUtils.readFully(receive, receive.available());

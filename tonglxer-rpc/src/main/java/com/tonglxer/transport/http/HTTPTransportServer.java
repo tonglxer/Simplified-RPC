@@ -70,7 +70,7 @@ public class HTTPTransportServer implements TransportServer {
             if (handler != null) {
                 handler.onRequest(in, out);
             }
-
+            // 清空
             out.flush();
         }
     }

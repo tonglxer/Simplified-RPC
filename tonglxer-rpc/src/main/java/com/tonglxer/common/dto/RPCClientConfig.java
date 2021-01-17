@@ -4,8 +4,10 @@ import com.tonglxer.client.TransportSelector;
 import com.tonglxer.client.impl.RandomTransportSelector;
 import com.tonglxer.codec.Decoder;
 import com.tonglxer.codec.Encoder;
-import com.tonglxer.codec.fastjson.JSONDecoder;
-import com.tonglxer.codec.fastjson.JSONEncoder;
+import com.tonglxer.codec.kyro.KyroDecoder;
+import com.tonglxer.codec.kyro.KyroEncoder;
+import com.tonglxer.codec.protostuff.ProtostuffDecoder;
+import com.tonglxer.codec.protostuff.ProtostuffEncoder;
 import com.tonglxer.proto.EndPoint;
 import com.tonglxer.transport.TransportClient;
 import com.tonglxer.transport.http.HTTPTransportClient;
@@ -26,9 +28,9 @@ import java.util.List;
 public class RPCClientConfig {
     private Class<? extends TransportClient> transportClass = HTTPTransportClient.class;
 
-    private Class<? extends Encoder> encoderClass = JSONEncoder.class;
+    private Class<? extends Encoder> encoderClass = KyroEncoder.class;
 
-    private Class<? extends Decoder> decoderClass = JSONDecoder.class;
+    private Class<? extends Decoder> decoderClass = KyroDecoder.class;
 
     private Class<? extends TransportSelector> selectorClass = RandomTransportSelector.class;
 

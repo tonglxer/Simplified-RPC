@@ -1,6 +1,7 @@
 package com.tonglxer.proto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RPCRequest {
+    private CommonInfo commonInfo;
     private ServiceDescriptor service;
     private Object[] args;
 }

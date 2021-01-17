@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020/12/17
  */
 @Slf4j
-public class ProtoBufferDecoder implements Decoder {
+public class ProtostuffDecoder implements Decoder {
     @Override
     public <T> T decode(byte[] bytes, Class<T> clazz) {
         Schema<T> schema = RuntimeSchema.getSchema(clazz);

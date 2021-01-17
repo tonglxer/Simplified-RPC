@@ -2,6 +2,7 @@ package com.tonglxer.proto;
 
 import com.tonglxer.common.constant.RPCResponseEnum;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RPCResponse {
+    private CommonInfo commonInfo;
     // 状态码，默认成功
     private int code = RPCResponseEnum.SUCCESS.getCode();
     // 响应信息，默认成功
