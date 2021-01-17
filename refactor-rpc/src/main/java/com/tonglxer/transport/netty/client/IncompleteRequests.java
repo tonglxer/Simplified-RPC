@@ -23,6 +23,25 @@ public class IncompleteRequests {
      */
     private static final Map<String, CompletableFuture<RPCResponse>> INCOMPLETE_FUTURES = new ConcurrentHashMap<>();
 
+    private static final IncompleteRequests instance = new IncompleteRequests();
+
+    /**
+     * 单例类隐藏构造函数：
+     * 一个客户端对应一个单例
+     */
+    private IncompleteRequests() {
+    }
+
+    /**
+     * 饿汉式单例
+     *
+     * @return 未完成请求类的单例对象
+     */
+    public static IncompleteRequests getInstance() {
+        return instance;
+    }
+
+
     /**
      * 将请求放入未完成集合中
      *
