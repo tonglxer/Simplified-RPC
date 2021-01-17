@@ -61,9 +61,15 @@ public class RPCNettyClient {
                 // 关闭IO线程池
                 group.shutdownGracefully().sync();
             } catch (InterruptedException e) {
-                log.error("Interrupt of shut down EventLoopGroup.");
+                log.error("Netty Client Interrupt of shut down EventLoopGroup.");
             }
         }
+    }
+
+
+    public static void main(String[] args) throws Exception{
+        RPCNettyClient client = new RPCNettyClient("127.0.0.1", 8989);
+        client.run();
     }
 
 }
